@@ -1,4 +1,6 @@
 // https://leetcode.com/problems/subtree-of-another-tree/
+// S가 T를 포함하고 있는지 확인
+// -> s의 어떤 Node에서 시작하는 tree가 T와 같다면 True
 package subtree
 
 //  * Definition for a binary tree node.
