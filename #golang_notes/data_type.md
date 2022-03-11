@@ -1,16 +1,48 @@
-## 내장타입 (built-in type)
+# 타입 Type
+
+# 내장타입 (built-in type)
 
 ### 1. 정수: integer
 
+→ 제로값: 0
+
 ### 2. 실수: float
+
+→ float32: 소수점 아래 6~7까지의 정밀도
+
+→ float64 사용 추천
 
 ### 3. 문자열: string
 
+→ 제로값: “”
+
 ### 4. 불리언: boolean
+
+→ bool: true / false
+
+→ 제로값: false
 
 ### 5. 복소수: complex number
 
-## 리터럴
+```go
+bool
+
+string
+
+int  int8  int16  int32  int64
+uint uint8 uint16 uint32 uint64 uintptr
+
+byte // uint8의 별칭
+
+rune // int32의 별칭
+     // 유니코드에서 code point를 의미합니다.
+
+float32 float64
+
+complex64 complex128
+```
+
+# 리터럴
 
 ### 1. 정수 리터럴 (integer)
 
@@ -73,22 +105,14 @@ func main() {
 }
 ```
 
-## 기본 자료형
+# Zero values
 
-```go
-bool
+→ 초깃값 없이 선언된 변수는 zero value
 
-string
+- 숫자 type에는 0
+- boolean type에는 false
+- string에는 "" (빈 문자열)
 
-int  int8  int16  int32  int64
-uint uint8 uint16 uint32 uint64 uintptr
+# Type 변환
 
-byte // uint8의 별칭
-
-rune // int32의 별칭
-     // 유니코드에서 code point를 의미합니다.
-
-float32 float64
-
-complex64 complex128
-```
+→ `Type(value)` : value를 Type으로 변환
