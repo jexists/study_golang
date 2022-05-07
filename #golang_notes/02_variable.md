@@ -40,17 +40,68 @@
 
 **string: 문자열**
 
-```python
+## 변수 선언하는 방법
+
+### 1. var 키워드
+
+```go
+// var 변수 타입 = 값
+var x int = 10
+
+// 예상되는 타입일 경우 생략가능
+var x = 10
+
+// 제로값 할당
+var x int
+
+// 여러개 변수 선언
+var x, y int = 10, 20
+
+// 여러개 제로값 할당
+var x, y int
+
+// 여러개 다른 타입 변수 선언 가능
+var x, y = 10, "hello"
+
+// 다양한 변수 한번에 선언 (선언리스트를 괄호 사용)
+var (
+	x int
+	y = 20
+	z int = 30
+	d, e = 40, "hello"
+	f, g string 
+)
+
+*var 키워드 사용
+→ 패키지 레벨 변수 선언
+→ 제로값 초기화
+```
+
+### 2. 짧은 선언
+
+```go
+var x = 10
+x := 10
+
+var x, y = 10, "hello"
+x, y := 10, "hello"
+
+// 새로 선언하는 변수가 있다면 이미 선언된 변수도 같이 값 할당 가능
+x := 10
+x, y := 30, "hello"
+```
+
+```go
 package main
 
 func main() {
 	// 1. 선언하고 대입하는 방법
-	// var a = int
-	// a = 4
+	var a = int
+	a = 4
 	// 2. 타입적지않고 쓰는방법
-	// var a = 4
+	var a = 4
 	// 3. 타입적고 대입
-	// var a int = 4
+	var a int = 4
 	// 4. 한줄로 적는 방법
 	a := 4
 	b := 2
@@ -76,7 +127,7 @@ func main() {
 }
 ```
 
-```python
+```go
 package main
 
 import "fmt"
