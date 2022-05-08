@@ -16,6 +16,12 @@
 
 → 변수: 이름, 값, 메모리주소, 사이즈
 
+→ 선언된 지역변수는 반드시 사용 (미사용시 컴파일 오류)
+
+→ 카멜 표기법 선호(camelCase)
+
+→ 스테이크 표기법 미사용
+
 ### 타입 종류
 
 **정수**
@@ -89,6 +95,37 @@ x, y := 10, "hello"
 // 새로 선언하는 변수가 있다면 이미 선언된 변수도 같이 값 할당 가능
 x := 10
 x, y := 30, "hello"
+```
+
+## Const
+
+→ 값을 변경할 수 없도록 선언
+
+→ 리터럴에 이름을 부여하는 방법
+
+→ 대문자, 단어 밑줄 구분 (CONST_NAMIMING)
+
+```sql
+const x int64 = 10
+
+const (
+	idKey = "id"
+	nameKey = "name"
+)
+
+const z = 20 * 10
+
+func main() {
+	const y = "hello"
+	fmt.Println(x)
+	fmt.Println(y)
+
+	x = x + 1
+	y = "bye"
+
+	fmt.Println(x) // ERROR
+	fmt.Println(y) // ERROR
+}
 ```
 
 ```go
