@@ -102,6 +102,42 @@ func main() {
 }
 ```
 
+→ 여러개의 argument 받고 싶을때
+```go
+package main
+
+import "fmt"
+
+func repeat(words ...string) {
+	fmt.Println(words)
+	// [joy happy sad angry]
+}
+
+func main() {
+	repeat("joy", "happy", "sad", "angry")
+}
+```
+
+→ naked return (return할 변수를 명시를 안해도 가능)
+```go
+package main
+
+import "fmt"
+
+func lenAndUpper(name string) (length int, uppercase string) {
+	length = len(name)
+	uppercase = strings.ToUpper(name)
+	return
+}
+
+func main() {
+	totalLength, _ := lenAndUpper("joy")
+	fmt.Println(totalLength)
+}
+```
+
+
+
 ## 함수 클로저
 
 → Go 함수들은 클로저일 수도 있습니다. 

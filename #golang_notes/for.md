@@ -197,3 +197,24 @@ func main() {
 }
 ```
 
+
+```go
+package main
+
+import "fmt"
+
+func superAdd(numbers ...int) int {
+	fmt.Println(numbers)
+	// for each, for in == for range
+	for index, number := range numbers {
+		fmt.Println(index, number)
+		total += number
+	}
+	return total
+}
+
+func main() {
+	total := superAdd(1, 2, 3, 4, 5, 6)
+	fmt.Println(total)
+}
+```
