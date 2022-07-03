@@ -43,6 +43,42 @@ func main() {
 }
 ```
 
+→ else 생략가능
+```go
+package main
+
+import (
+	"fmt"
+)
+func canIDrink(age int) bool {
+	if age <18 {
+		return false
+	}
+	return true
+}
+func main() {
+	fmt.Println(canIDrink(16))
+}
+```
+
+→ if문 안에서 변수 선언 가능
+```go
+package main
+
+import (
+	"fmt"
+)
+func canIDrink(age int) bool {
+	if koreanAge := age + 1; koreanAge <18 {
+		return false
+	}
+	return true
+}
+func main() {
+	fmt.Println(canIDrink(16))
+}
+```
+
 ## Switch
 
 → 연속적인 if-else구문 사용하는 짧은 방안

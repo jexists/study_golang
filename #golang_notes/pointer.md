@@ -10,6 +10,37 @@
 
 변수 =  이름, 타입, 값, 메모리 주소
 
+
+```go
+package main
+
+import (
+	"fmt"
+)
+func main() {
+	a := 2
+	b := a
+	a = 10
+	fmt.Println(a, b) //10 2
+}
+```
+
+```go
+package main
+
+import (
+	"fmt"
+)
+func main() {
+	a := 2
+	b := &a
+	a = 10
+	fmt.Println(a, *b) //10 10
+	*b = 20 // pointer을 사용해서 a 변경가능
+	fmt.Println(a, *b) //20 20
+}
+```
+
 ## * 연산자
 
 → `*Type`: type값을 가르키는 포인터 (zero value: nil)
