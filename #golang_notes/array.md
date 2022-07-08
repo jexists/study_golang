@@ -160,3 +160,24 @@ func main() {
 → 모든 경우에 사용X
 
 → 원소의 값의 범위 한정, 범위 작아야함
+
+
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+
+	// array
+	a := [3]int{1, 2}
+	// a[4] = 4 // ERROR (크기제한)
+	fmt.Println(a, len(a))
+
+	// slice: length 없음
+	s := []int{1, 2}
+	s = append(s, 3)
+	fmt.Println(s, len(s))
+}
+```

@@ -71,3 +71,17 @@ func main() {
 	fmt.Println("The value:", v, "Present?", ok) //The value: 0 Present? false
 }
 ```
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	m := map[string]string{"name":"jexists", "age":"12"}
+	for key, _ := range nico {
+		fmt.Println(key)
+	}
+
+}
+```

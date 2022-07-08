@@ -136,3 +136,29 @@ func main() {
 	s.ViewGrade() //{Math C} *고랭 함수호출은 복사 (입력값 복사)
 }
 ```
+
+
+```go
+package main
+
+import "fmt"
+
+type person struct {
+	name string
+	age int
+	favFood []string
+}
+
+func main() {
+	favFood := []string{"apple"}
+	// struct 순서대로 입력하기
+	jexist := person{"jexist", 12, favFood}
+
+	fmt.Println(jexist)
+	// struct key 적기
+	jexist := person{name:"jexist", age:12, favFood: favFood}
+	fmt.Println(jexist)
+
+	// jexist := person{name:"jexist", 12, favFood} //ERROR
+}
+```
