@@ -11,7 +11,32 @@ var (
 	errRequestFailed = errors.New("Request Failed")
 )
 
+type result struct {
+	url    string
+	status string
+}
+
 func main() {
+	c := make(chan result)
+
+	urls := []string{
+		"https://github.com/",
+		"https://www.naver.com/",
+		"https://www.daum.net/",
+		"https://www.google.com/",
+		"https://www.facebook.com/",
+		"https://okky.kr/",
+		"https://www.airbnb.com/",
+	}
+
+	for _, url := range urls {
+		go hitURL(url, c)
+	}
+
+	for i := 0; i < len(urls); i++ {
+		fmt.Println(<-c)
+	}
+
 	// // var results = map[string]string // ERROR (초기화안되서) map == nil
 
 	// // 초기화 시키기
@@ -42,20 +67,36 @@ func main() {
 	// // fmt.Println(results)
 
 	// Top to Down
-	go sexyCount("joy")
-	sexyCount2("jexists")
+	// go sexyCount("joy")
+	// sexyCount2("jexists")
+}
+
+// 보내는것만 가능
+func hitURL(url string, c chan<- result) {
+	fmt.Println("Checking ", url)
+	// fmt.Println(<-c)
+	// c <- result{}
+	resp, err := http.Get(url)
+	status := "OK"
+	if err != nil || resp.StatusCode >= 400 {
+		status = "Failed"
+		// fmt.Println(err, resp.StatusCode)
+		// c <- result{url: url, status: "failed"}
+	}
+	c <- result{url: url, status: status}
+
 }
 
 //
-func hitURL(url string) error {
-	fmt.Println("Checking ", url)
-	resp, err := http.Get(url)
-	if err != nil || resp.StatusCode >= 400 {
-		fmt.Println(err, resp.StatusCode)
-		return errRequestFailed
-	}
-	return nil
-}
+// func hitURL(url string) error {
+// 	fmt.Println("Checking ", url)
+// 	resp, err := http.Get(url)
+// 	if err != nil || resp.StatusCode >= 400 {
+// 		fmt.Println(err, resp.StatusCode)
+// 		return errRequestFailed
+// 	}
+// 	return nil
+// }
 
 func sexyCount2(person string) {
 	for i := 0; i < 5; i++ {
