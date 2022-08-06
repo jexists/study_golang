@@ -11,13 +11,14 @@ var (
 	errRequestFailed = errors.New("Request Failed")
 )
 
-type result struct {
+type requestResult struct {
 	url    string
 	status string
 }
 
 func main() {
-	c := make(chan result)
+	results := make(map[string]string)
+	c := make(chan requestResult)
 
 	urls := []string{
 		"https://github.com/",
@@ -34,7 +35,12 @@ func main() {
 	}
 
 	for i := 0; i < len(urls); i++ {
-		fmt.Println(<-c)
+		// fmt.Println(<-c)
+		result := <-c
+		results[result.url] = result.status
+	}
+	for url, status := range results {
+		fmt.Println(url, status)
 	}
 
 	// // var results = map[string]string // ERROR (초기화안되서) map == nil
@@ -72,7 +78,7 @@ func main() {
 }
 
 // 보내는것만 가능
-func hitURL(url string, c chan<- result) {
+func hitURL(url string, c chan<- requestResult) {
 	fmt.Println("Checking ", url)
 	// fmt.Println(<-c)
 	// c <- result{}
@@ -83,7 +89,7 @@ func hitURL(url string, c chan<- result) {
 		// fmt.Println(err, resp.StatusCode)
 		// c <- result{url: url, status: "failed"}
 	}
-	c <- result{url: url, status: status}
+	c <- requestResult{url: url, status: status}
 
 }
 
