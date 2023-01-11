@@ -17,7 +17,7 @@ func main() {
 
 	var c int
 	var d int
-	scanf, err := fmt.Scanf("%d %d\n", &c, &d)
+	scanf, err := fmt.Scanf("%d#%d\n", &c, &d)
 	if err != nil {
 		fmt.Println(scanf, err)
 	} else {
