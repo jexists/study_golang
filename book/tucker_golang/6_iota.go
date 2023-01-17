@@ -23,5 +23,3 @@ func main() {
 	fmt.Println(C2) // 2
 	fmt.Println(C3) // 3
 }
-
-//
