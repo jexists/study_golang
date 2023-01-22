@@ -17,4 +17,7 @@ func main() {
 	for n := tail; n != nil; n = n.prev {
 		fmt.Printf("node val:%d\n", n.val)
 	}
+	// node val:30
+	// node val:20
+	// node val:10
 }
