@@ -26,6 +26,10 @@ func InputIntValue() (int, error) {
 func main() {
 
 	// 랜덤한 숫자 생성
+	randTest := rand.Intn(100)
+	fmt.Println(randTest)
+	// rand.Seed()가 0이라서 일정한 값 호출
+
 	rand.Seed(time.Now().UnixNano())
 
 	r := rand.Intn(100)
@@ -46,6 +50,7 @@ func main() {
 				fmt.Println("입력하신 숫자가 더 작습니다.")
 			} else {
 				fmt.Println("숫자를 맞췄습니다. 축하합니다. 시도한 횟수: ", cnt)
+				break
 			}
 			cnt++
 		}
