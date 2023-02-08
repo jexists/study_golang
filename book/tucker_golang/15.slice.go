@@ -39,8 +39,14 @@ func main() {
 
 	// make() 사용해서 초기화
 	var sliceMake = make([]int, 3)
-	fmt.Println(sliceMake)
+	fmt.Println(sliceMake) // [0 0 0]
 	fmt.Printf("type of sliceMake is %T\n", sliceMake)
-	// [0 0 0]
 	// type of sliceMake is []int
+	fmt.Println(len(sliceMake)) // 3
+	fmt.Println(cap(sliceMake)) // 3
+
+	var sliceMakeWithCap = make([]int, 3, 5)
+	fmt.Println(sliceMakeWithCap)      // [0 0 0]
+	fmt.Println(len(sliceMakeWithCap)) // 3
+	fmt.Println(cap(sliceMakeWithCap)) // 5
 }
