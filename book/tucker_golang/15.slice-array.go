@@ -14,7 +14,9 @@ func main() {
 	array := [5]int{1, 2, 3, 4, 5}
 	slice := []int{1, 2, 3, 4, 5}
 
+	// 배열의 모든값 복사
 	changeArray(array)
+	// 구조체 복사 (주소값 복사: 같은 주소값이여서 같은 데이터)
 	changeSlice(slice)
 
 	fmt.Println(array) // [1 2 3 4 5]
