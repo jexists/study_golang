@@ -8,6 +8,7 @@ func main() {
 	// [0 0 0 0 0 0 0 0 0 0]
 
 	var slice []int
+	// 슬라이스일 경우 []대괄호 안에 길이 넣지 말아야함
 	if len(slice) == 0 {
 		fmt.Println("slice empty ", slice)
 		// slice empty  []
@@ -15,6 +16,7 @@ func main() {
 	// slice[1] = 10 // ERROR
 	// panic: runtime error: index out of range [1] with length 0
 	// fmt.Println(slice)
+	// 초기화 할경우 길이가 0
 
 	// 슬라이스 초기화
 	// {}사용해서 초기화
@@ -26,7 +28,8 @@ func main() {
 	// [1 0 0 0 0 2 0 0 0 0 3]
 
 	var arrayType = [...]int{1, 2, 3} // 배열: 고정길이
-	var sliceType = []int{1, 2, 3}    // 슬라이스
+	// [...]int{1, 2, 3} == [3]int{1,2,3}
+	var sliceType = []int{1, 2, 3} // 슬라이스
 
 	fmt.Println(arrayType)
 	fmt.Printf("type of arrayType is %T\n", arrayType)
