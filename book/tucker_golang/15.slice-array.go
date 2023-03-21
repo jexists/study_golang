@@ -3,10 +3,12 @@ package main
 import "fmt"
 
 func changeArray(array2 [5]int) {
+	// 새로운 값
 	array2[2] = 200
 }
 
 func changeSlice(slice2 []int) {
+	// 포인터
 	slice2[2] = 200
 }
 
@@ -20,6 +22,10 @@ func main() {
 	changeSlice(slice)
 
 	fmt.Println(array) // [1 2 3 4 5]
+	// rvalue (값)
+	// array != array2 (대입)
+	// 대입: 공간 = 값
+	// 대입연산자 일경우 좌변 우변 타입이 같아야한다.
 	fmt.Println(slice) // [1 2 200 4 5]
 
 }
