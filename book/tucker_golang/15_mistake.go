@@ -21,6 +21,7 @@ func main() {
 	// 기존 배열 변경방법 - 슬라이스 리턴
 	slice = addNumReturn(slice)
 	fmt.Println(slice) // [1, 2, 3, 4, 4]
+
 }
 
 func addNum(slice []int) {
