@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// 복사 후 새로운 슬라이스를 만들어서 두 슬라이스 서로 영향 없게 동작하고 싶을때
 func main() {
 
 	// 복제: 같은 길이 슬라이스 생성 후 순회해서 요솟값 복사
@@ -19,6 +20,8 @@ func main() {
 	// append() 함수 사용
 	slice := []int{1, 2, 3, 4, 5}
 	slice3 := append([]int{}, slice...)
+	// -> 빈슬라이스에다가 append 가변인자(전체)
+	// 빈슬라이스: len:0, cap:0 -> 사이즈를 늘려서 넣음
 	fmt.Println(slice3)
 	// [1 2 3 4 5]
 
@@ -28,6 +31,7 @@ func main() {
 
 	// copy()
 	// func copy(dst, src []Type) int
+	// func copy(목적지, 소스 []Type) int
 	// func copy(복사한 결과를 저장하는 슬라이스 변수, 복사대상이 되는 슬라이스) 복사된 요소 개수(길이가 작은 갯수만큼 복사)
 
 	slice5 := []int{1, 2, 3, 4, 5}

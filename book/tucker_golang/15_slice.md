@@ -158,6 +158,12 @@ for i, v := range slice {
 - 인덱스 2개 사용시 cap: 전체 길이에서 시작 인덱스를 뺀 값 
 - 슬라이싱의 결과가 슬라이스다.
 - array[startIndex:endindex]
+- array[startIndex:endindex:maxindex]
+- len == 끝인덱스 - 시작인덱스
+- cap == 최대인덱스 - 시작인덱스
+- startIndex 생략 == 0
+- endindex 생략 == len(slice)
+- maxindex 생략 == 최대인덱스 (cap사이즈 조절)
 
 - 처음부터 슬라이싱: 시작인덱스 생략가능
 ```go
@@ -190,6 +196,8 @@ for i, v := range slice {
 ```
 - cap크기 조절
 - slice[시작인덱스:끝인덱스:최대인덱스]
+- len == 끝인덱스 - 시작인덱스
+- cap == 최대인덱스 - 시작인덱스
 ```go
 	slice13 := []int{1, 2, 3, 4, 5}
 	slice14 := slice13[1:3]
@@ -223,12 +231,12 @@ print(b) // [100, 2]
 c = a[1:-1] 
 // 파이썬에선 배열 복사할때 사용 (고랭은 기존 배열)
 slices = slices[:]
-````
+```
 
 ## append()
 `변수 := append([]int{}, 복사할배열...)` == `변수 := append([]int{}, 복사할배열[0], 복사할배열[1], 복사할배열[...])`
 
-````
+```
 	slice := []int{1, 2, 3, 4, 5}
 	slice3 := append([]int{}, slice...)
 	fmt.Println(slice3)
@@ -246,3 +254,4 @@ slices = slices[:]
 - 빈공간 충분 X -> 새로운 배열 할당 -> 복사 -> 요소 추가
 - 남은 빈공간 = cap - len
 - cap - len >= 요소갯수 (true: 추가 / false: 복사)
+
