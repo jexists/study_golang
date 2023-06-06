@@ -255,3 +255,7 @@ slices = slices[:]
 - 남은 빈공간 = cap - len
 - cap - len >= 요소갯수 (true: 추가 / false: 복사)
 
+# slice 정렬
+int -> Ints()
+float64 -> Float64s()
+string -> strings()
