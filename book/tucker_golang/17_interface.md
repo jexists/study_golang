@@ -47,3 +47,5 @@ type InerfaceName interface {
 - 모든 타입이 가능
 - 모든 타입을 받고 싶을 때 사용
 - type을 알고 싶은 경우는 v.(type) 사용
+- 인터페이스 기본값 nil
+- 인터페이스 변수에 .(타입)을 붙여서 변환 `a.(ConcreteType)`
