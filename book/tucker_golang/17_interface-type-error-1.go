@@ -29,7 +29,7 @@ func DoAttack(att Attacker) {
 		monster = att.(*Monster)
 		fmt.Println(monster.Lv)
 		// Runtime Error
-		//  interface conversion: main.Attacker is *main.Player, not *main.Monster
+		// interface conversion: main.Attacker is *main.Player, not *main.Monster
 	}
 }
 
