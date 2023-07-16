@@ -21,6 +21,7 @@ type Customer struct {
 	LastName  string `json:"last_mame"`
 	Email     string `json:"email"`
 	LoggedIn  bool   `json:"logged_in"`
+	Password  string `json:"password"`
 }
 
 type Order struct {

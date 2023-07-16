@@ -69,6 +69,8 @@ func RunAPIWithHandler(address string, h HandlerInterface) error {
 		userGroup.POST("/:id/orders", h.GetOrders)
 	}
 	return r.Run(address)
+	// http -> https 지원 (백엔드 웹 서비스의 https 주소, 인증서 파일, 비공개 키파일)
+	// return r.RunTLS(address, "cert.pem", "key.pem")
 }
 
 func MyCustomLogger() gin.HandlerFunc {

@@ -1,6 +1,11 @@
 package dblayer
 
-import "gomusic/models"
+import (
+	"errors"
+	"gomusic/models"
+)
+
+var ErrINVALIDPASSWORD = errors.New("Invalid password")
 
 type DBlayer interface {
 	GetAllProducts() ([]models.Product, error)

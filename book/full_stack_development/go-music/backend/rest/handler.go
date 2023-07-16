@@ -1,12 +1,15 @@
 package rest
 
 import (
+	"errors"
+	"fmt"
 	"gomusic/dblayer"
 	"gomusic/models"
 	"net/http"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"golang.org/x/crypto/bcrypt"
 )
 
 type HandlerInterface interface {
@@ -80,6 +83,11 @@ func (h *Handler) AddUser(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+	// 패스워드 해싱
+	fmt.Println(customer.Password)
+	hashPassword(&customer.Password)
+	fmt.Println(customer.Password)
+
 	customer, err = h.db.AddUser(customer)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -130,4 +138,27 @@ func (h *Handler) Charge(c *gin.Context) {
 	if h.db == nil {
 		return
 	}
+}
+
+// 패스워드 해시반환
+func hashPassword(s *string) error {
+	if s == nil {
+		return errors.New("Reference provided for hashing password is nil")
+	}
+	// bcrypt 패키지에서 사용할 수 있게 패스어드 문자열을 바이트 슬라이스로 변환
+	sBytes := []byte(*s)
+	// GenerateFromPassword() 패스워드 해시를 반환
+	hashedBytes, err := bcrypt.GenerateFromPassword(sBytes, bcrypt.DefaultCost)
+	if err != nil {
+		return err
+	}
+	// 패스워드 문자열을 해시 값으로 변경
+	*s = string(hashedBytes[:])
+	return nil
+}
+
+// 패스워드 비교
+func checkPassword(existingHash, incomingPass string) bool {
+	// 해시와 패스워드 문자열이 일치
+	return bcrypt.CompareHashAndPassword([]byte(existingHash), []byte(incomingPass)) == nil
 }
