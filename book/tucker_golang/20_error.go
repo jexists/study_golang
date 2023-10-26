@@ -6,6 +6,7 @@ import (
 	"os"
 )
 
+// 에러 반환
 func ReadFile(filename string) (string, error) {
 	file, err := os.Open(filename)
 	if err != nil {
