@@ -11,10 +11,9 @@ import (
 	"github.com/urfave/negroni"
 )
 
-mux := MakeWebHandler()
-n :=negroni.Classic()
-n.UseHandler(mux)
-
+// mux := MakeWebHandler()
+// n :=negroni.Classic()
+// n.UseHandler(mux)
 
 var rd *render.Render
 

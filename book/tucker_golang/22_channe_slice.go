@@ -24,6 +24,12 @@
 
 package main
 
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
 func main() {
 	var wg sync.WaitGroup
 	ch := make(chan int)
@@ -37,7 +43,7 @@ func main() {
 	wg.Wait()
 }
 
-func square(wg *sync.WaitGroup, ch chan int){
+func square(wg *sync.WaitGroup, ch chan int) {
 	mutex.Lock()
 	n := s[0]
 	mutex.Unlock()

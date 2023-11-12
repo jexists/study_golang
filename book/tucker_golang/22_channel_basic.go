@@ -1,5 +1,11 @@
 package main
 
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
 func main() {
 	var wg sync.WaitGroup
 	ch := make(chan int)
@@ -12,8 +18,8 @@ func main() {
 	wg.Wait()
 }
 
-func square(wg *sync.WaitGroup, ch chan int){
-	n := <- ch
+func square(wg *sync.WaitGroup, ch chan int) {
+	n := <-ch
 
 	time.Sleep(time.Second)
 	fmt.Println("Square:", n*n)

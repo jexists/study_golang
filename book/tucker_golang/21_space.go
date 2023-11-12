@@ -1,5 +1,11 @@
 package main
 
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
 type Job interface {
 	Do()
 }
@@ -11,17 +17,17 @@ type SquareJob struct {
 	// contest State // 필요한 정보
 }
 
-func (j *SquareJob) Do(){
+func (j *SquareJob) Do() {
 	fmt.Printf("%d 작업 시작\n", j.index)
-	time.Sleep(1 *time.second)
-	fmt.Printf("%d 작업 완료 - 결과 %d \n", j.index, j.index *j.index)
+	time.Sleep(1 * time.second)
+	fmt.Printf("%d 작업 완료 - 결과 %d \n", j.index, j.index*j.index)
 }
 
 func main() {
 	var jobList [10]Job
 	for i := 0; i < 10; i++ {
 		jobList[i] = &SquareJob{i}
-		
+
 	}
 
 	var wg sync.WaitGroup
@@ -33,7 +39,7 @@ func main() {
 			job.Do()
 			wg.Done()
 		}()
-		
+
 	}
 	wg.Wait()
 }
