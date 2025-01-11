@@ -1,0 +1,9 @@
+
+
+POST localhost:8080
+Content-Type: application/json
+
+{
+  "record": 
+    {"value":"TGV0J3MgR28gIzEK"}
+}
